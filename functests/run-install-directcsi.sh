@@ -31,4 +31,4 @@ fi
 BUILD_VERSION="$1"
 export BUILD_VERSION
 
-"${SCRIPT_DIR}/execute.sh" "${SCRIPT_DIR}/install-directcsi.sh"
+"${SCRIPT_DIR}/execute.sh" "${SCRIPT_DIR}/install-directpv.sh"

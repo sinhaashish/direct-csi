@@ -18,6 +18,6 @@
 
 set -ex
 source "${SCRIPT_DIR}/common.sh"
-export DIRECT_CSI_CLIENT=./kubectl-direct_csi
-export DIRECT_CSI_VERSION="$BUILD_VERSION"
-install_directcsi_with_dynamic_discovery
+export DIRECTPV_CLIENT=./kubectl-directpv
+export DIRECTPV_VERSION="$BUILD_VERSION"
+install_directpv_with_dynamic_discovery

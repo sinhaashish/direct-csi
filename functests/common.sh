@@ -89,7 +89,7 @@ function _wait_directcsi_to_start() {
     done
 }
 
-function install_directcsi() {
+function install_directpv() {
     image="directpv:${DIRECT_CSI_VERSION}"
     if [[ "$DIRECT_CSI_VERSION" == "v1.3.6" ]] || [[ "$DIRECT_CSI_VERSION" == "v1.4.3" ]]; then
         image="direct-csi:${DIRECT_CSI_VERSION}"
@@ -101,12 +101,12 @@ function install_directcsi() {
     _wait_directcsi_to_start
 }
 
-function install_directcsi_with_dynamic_discovery() {
+function install_directpv_with_dynamic_discovery() {
     "${DIRECT_CSI_CLIENT}" install --image "directpv:${DIRECT_CSI_VERSION}" --enable-dynamic-discovery
     _wait_directcsi_to_start
 }
 
-function uninstall_directcsi() {
+function uninstall_directpv() {
     "${DIRECT_CSI_CLIENT}" uninstall  --crd --force
 
     pending=4
