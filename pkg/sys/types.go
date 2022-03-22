@@ -18,6 +18,7 @@ package sys
 
 import "path/filepath"
 
+// UDevData contains udev data
 type UDevData struct {
 	Partition    int
 	WWID         string
@@ -83,6 +84,7 @@ type Device struct {
 	FirstMountOptions []string
 }
 
+// DevPath return dev path
 func (d Device) DevPath() string {
 	return filepath.Join("/dev", d.Name)
 }

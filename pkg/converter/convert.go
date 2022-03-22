@@ -53,6 +53,7 @@ func convertVolumeCRD(Object *unstructured.Unstructured, toVersion string) (*uns
 	return convertedObject, statusSucceed()
 }
 
+// MigrateList function migrates unstructured list object from one to another
 func MigrateList(fromList, toList *unstructured.UnstructuredList, groupVersion schema.GroupVersion) error {
 	fromList.DeepCopyInto(toList)
 	fn := func(obj runtime.Object) error {

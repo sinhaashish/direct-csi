@@ -25,7 +25,7 @@ import (
 const (
 	// MountOptPrjQuota option for project quota
 	MountOptPrjQuota = "prjquota"
-	// rw option for project quota
+	// MountOptRW option for project quota
 	MountOptRW = "rw"
 )
 
@@ -69,6 +69,7 @@ func MountXFSDevice(device, target string, flags []string) error {
 	return SafeMount(device, target, "xfs", flags, MountOptPrjQuota)
 }
 
+// ValidDirectPVMountOpts validates the mount points
 func ValidDirectPVMountOpts(deviceMountOpts []string) bool {
 	expectedMountOpts := []string{
 		MountOptRW,
