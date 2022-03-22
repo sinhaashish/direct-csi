@@ -29,6 +29,7 @@ import (
 	"k8s.io/klog/v2"
 )
 
+// RunDynamicDriveHandler starts the listener
 func RunDynamicDriveHandler(ctx context.Context,
 	identity, nodeID, rack, zone, region string,
 	loopbackOnly bool) error {
@@ -67,6 +68,7 @@ func (d *driveEventHandler) Add(ctx context.Context, device *sys.Device) error {
 	return nil
 }
 
+// Update updates the drives
 func (d *driveEventHandler) Update(ctx context.Context, device *sys.Device, drive *directcsi.DirectCSIDrive) error {
 	var errMessage string
 	updatedDrive, err := d.updateDrive(device, drive)
@@ -94,6 +96,7 @@ func (d *driveEventHandler) Update(ctx context.Context, device *sys.Device, driv
 	return err
 }
 
+// Remove removes the drives
 func (d *driveEventHandler) Remove(ctx context.Context, drive *directcsi.DirectCSIDrive) error {
 	utils.UpdateCondition(drive.Status.Conditions,
 		string(directcsi.DirectCSIDriveConditionReady),

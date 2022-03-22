@@ -41,7 +41,8 @@ func getRootBlockPath(devName string) string {
 	}
 }
 
-func ValidateUDevInfo(device *sys.Device, directCSIDrive *directcsi.DirectCSIDrive) bool {
+// ValidateDevice validates the device with drive
+func ValidateDevice(device *sys.Device, directCSIDrive *directcsi.DirectCSIDrive) bool {
 
 	if directCSIDrive.Status.Path != device.DevPath() {
 		klog.V(3).Infof("[%s] path mismatch: %v -> %v", directCSIDrive.Status.Path, device.DevPath())
