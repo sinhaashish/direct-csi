@@ -89,6 +89,10 @@ func ValidateUDevInfo(device *sys.Device, directCSIDrive *directcsi.DirectCSIDri
 		klog.V(3).Infof("[%s] ueventserial mismatch: %v -> %v", device.Name, directCSIDrive.Status.UeventSerial, device.UeventSerial)
 		return false
 	}
+	if directCSIDrive.Status.SerialNumberLong != device.SerialLong {
+		klog.V(3).Infof("[%s] SerialLong mismatch: %v -> %v", device.Name, directCSIDrive.Status.SerialNumberLong, device.SerialLong)
+		return false
+	}
 	if directCSIDrive.Status.Vendor != device.Vendor {
 		klog.V(3).Infof("[%s] vendor mismatch: %v -> %v", device.Name, directCSIDrive.Status.Vendor, device.Vendor)
 		return false
@@ -123,6 +127,10 @@ func ValidateUDevInfo(device *sys.Device, directCSIDrive *directcsi.DirectCSIDri
 	}
 	if directCSIDrive.Status.UeventFSUUID != device.UeventFSUUID {
 		klog.V(3).Infof("[%s] mismatch ueventfsuuid %v - %v", device.Name, directCSIDrive.Status.UeventFSUUID, device.UeventFSUUID)
+		return false
+	}
+	if directCSIDrive.Status.PCIPath != device.PCIPath {
+		klog.V(3).Infof("[%s] PCIPath mismatch: %v -> %v", device.Name, directCSIDrive.Status.PCIPath, device.PCIPath)
 		return false
 	}
 

@@ -105,6 +105,8 @@ func VerifyHostStateForDrive(drive *directcsi.DirectCSIDrive) error {
 		PartUUID:     runUdevData.PartUUID,
 		UeventFSUUID: runUdevData.UeventFSUUID,
 		FSType:       runUdevData.FSType,
+		PCIPath:      runUdevData.PCIPath,
+		SerialLong:   runUdevData.UeventSerialLong,
 	}
 
 	if !uevent.ValidateUDevInfo(device, drive) {
